@@ -122,6 +122,10 @@ Some notes:
   For static linking builds, `{lib-name}` resolves accordingly (e.g., `libmy_crate.a`).
 - The downloaded binary is saved locally under the correct platform-specific library name,
   so the remote file name in the URL template is entirely up to whoever published the binaries.
+- Downloaded binaries are cached in your project's `.dart_tool` directory,
+  keyed by their resolved download URL.
+  Thus, a binary is only downloaded once per package version and target,
+  until the cache is cleared (e.g., by a `flutter clean`).
 - Only ever download binaries from a source you trust!
   You are responsible for ensuring the binaries you download are safe
   and were built from the package's actual source code.
